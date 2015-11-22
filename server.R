@@ -7,9 +7,6 @@
 
 library(shiny)
 library(ggplot2)
-library(scales)
-#library(data.table)
-#library(MASS)
 
 setClass("myNumeric")
 setAs("character","myNumeric", function(from) as.numeric(from) )
