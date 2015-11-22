@@ -38,7 +38,9 @@ colnames <- c("character", "numeric", "numeric", "myNumeric", "numeric", "numeri
 #   19) orbit class
 # In both cases, the received files are renamed and compressed using gzip
 #
+print("Load asteroids")
 asteroids <- read.csv("asteroids.csv.gz", colClasses = colnames)
+print("Load comets")
 comets <- read.csv("comets.csv.gz", colClasses = colnames)
 asteroids$type <- "Asteroid"
 comets$type <- "Comet"
@@ -46,18 +48,21 @@ comets$type <- "Comet"
 comets$H <- comets$M1
 asteroids$M1 <- asteroids$H
 
+print("Combine asteroids and comets")
 combined <- rbind(asteroids, comets)
 combined$type <- factor(combined$type)
 combined$class <- factor(combined$class)
 combined$neo <- combined$neo == "Y"
 combined$pha <- combined$pha == "Y"
 combined$a <- abs(combined$a)
+print("Finish data preparation")
 
 logchoices <- c("diameter", "a", "q", "ad")
 cols <- c("H", "diameter", "albedo", "rot_per", "e", "a", "q", "i", "om", "w", "ma", "ad", "per", "per_y", "class", "popdensity")
 labels <- c("Absolute Magnitude", "Diameter (km)", "Albedo", "Rotation Period (hr)", "Eccentricity", "Semi-Major Axis (AU)", "Perihelion (AU)", "Inclination (deg)", "Longiture of ascending node (deg)", "Argument of perihelion (deg)", "Mean anomaly (deg)", "Aphelion (AU)", "Period (days)", "Period (years)", "Class", "Population Density")
 choices <- data.frame(id=cols, name=labels)
 
+print("Start Shiny Server")
 shinyServer(function(input, output) {
 
   selectedConf <- reactive({
@@ -120,3 +125,4 @@ shinyServer(function(input, output) {
   })
   
 })
+print("Shiny Server Started")

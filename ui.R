@@ -35,6 +35,7 @@ population <- list("All Comets and Asterods" = "Both", "All Asteroids" = "Astero
 
 models <- list("None" = "NONE", "Linear Regression per Orbital Class" = "LINEAR", "Linear Regression (overall)" = "LINEAR2", "Polynomial Regression by Orbital Class" = "LOESS", "Polynomial Regression (overall)" = "LOESS2")
 
+print("Start Shiny UI")
 shinyUI(
   fluidPage(
     # Application title
@@ -61,3 +62,4 @@ shinyUI(
     )
   )
 )
+print("Shiny UI Started")
