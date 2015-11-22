@@ -12,7 +12,6 @@ The data used by the application are two CSV files containing a consistent set o
 one for asteroid data (object kind = 'Asteroids') and one for comet data (object kind = 'Comets').
 In both cases, the following columns were queried:
 
-- object fullname
 - H (mag)
 - M1 (mag)
 - diameter (km)
@@ -22,12 +21,8 @@ In both cases, the following columns were queried:
 - a (AU)
 - q (AU)
 - i (deg)
-- node (deg)
-- peri (deg)
-- M (deg)
 - Q (AU)
 - period (d)
-- period (years)
 - NEO (Y/N)
 - PHA (Y/N)
 - orbit class

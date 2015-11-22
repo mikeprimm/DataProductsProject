@@ -10,32 +10,27 @@ library(ggplot2)
 
 setClass("myNumeric")
 setAs("character","myNumeric", function(from) as.numeric(from) )
-colnames <- c("character", "numeric", "numeric", "myNumeric", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric",  "factor", "factor", "factor")
+colnames <- c("numeric", "numeric", "myNumeric", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", "factor", "factor", "factor")
 # Data from JPL Small-Body Database
 # Load data from NASA (stored locally)
 #   Data acquired via two requests from http://ssd.jpl.nasa.gov/sbdb_query.cgi#x
 #   1) for asteroids.csv.gz, based on Object Kind = "Asteroids"
 #   2) for comets.csv.gz, based on Object Kind = "Comets"
 #  In both cases, a consistent column set is requested for the output fields (so that the tables combine properly)
-#   1) object fullname
-#   2) H (mag)
-#   3) M1 (mag)
-#   4) diameter (km)
-#   5) albedo
-#   6) rot_per (h)
-#   7) e
-#   8) a (AU)
-#   9) q (AU)
-#   10) i (deg)
-#   11) node (deg)
-#   12) peri (deg)
-#   13) M (deg)
-#   14) Q (AU)
-#   15) period (d)
-#   16) period (years)
-#   17) NEO (Y/N)
-#   18) PHA (Y/N)
-#   19) orbit class
+#   1) H (mag)
+#   2) M1 (mag)
+#   3) diameter (km)
+#   4) albedo
+#   5) rot_per (h)
+#   6) e
+#   7) a (AU)
+#   8) q (AU)
+#   9) i (deg)
+#   10) Q (AU)
+#   11) period (d)
+#   12) NEO (Y/N)
+#   13) PHA (Y/N)
+#   14) orbit class
 # In both cases, the received files are renamed and compressed using gzip
 #
 print("Load asteroids")

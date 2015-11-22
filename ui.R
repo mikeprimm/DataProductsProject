@@ -7,9 +7,9 @@
 
 library(shiny)
 
-cols <- c("H", "diameter", "albedo", "rot_per", "e", "a", "q", "i", "om", "w", "ma", "ad", "per", "per_y")
-labels <- c("Absolute Magnitude", "Diameter (km)", "Albedo", "Rotation Period (hr)", "Eccentricity", "Semi-Major Axis (AU)", "Perihelion (AU)", "Inclination (deg)", "Longiture of ascending node (deg)", "Argument of perihelion (deg)", "Mean anomaly (deg)", "Aphelion (AU)", "Period (days)", "Period (years)")
-choicesX <- list("Absolute Magnitude" = "H", "Diameter (km)" = "diameter", "Albedo" = "albedo", "Rotation Period (hr)" = "rot_per", "Eccentricity" = "e", "Semi-Major Axis (AU)" = "a", "Perihelion (AU)" = "q", "Inclination (deg)" = "i", "Longiture of ascending node (deg)" = "om", "Argument of perihelion (deg)" = "w", "Mean anomaly (deg)" = "na", "Aphelion (AU)" = "ad", "Period (days)" = "per", "Period (years)" = "per_y", "Orbital Class" = "class")
+cols <- c("H", "diameter", "albedo", "rot_per", "e", "a", "q", "i", "ad", "per")
+labels <- c("Absolute Magnitude", "Diameter (km)", "Albedo", "Rotation Period (hr)", "Eccentricity", "Semi-Major Axis (AU)", "Perihelion (AU)", "Inclination (deg)", "Aphelion (AU)", "Period (days)")
+choicesX <- list("Absolute Magnitude" = "H", "Diameter (km)" = "diameter", "Albedo" = "albedo", "Rotation Period (hr)" = "rot_per", "Eccentricity" = "e", "Semi-Major Axis (AU)" = "a", "Perihelion (AU)" = "q", "Inclination (deg)" = "i", "Aphelion (AU)" = "ad", "Period (days)" = "per", "Orbital Class" = "class")
 choicesY <- append(list("Population Density" = "popdensity", "Population Histogram" = "pophist"), choicesX)
 population <- list("All Comets and Asterods" = "Both", "All Asteroids" = "Asteroid", "All Comets" = "Comet", "Near-Earth Objects" = "NEO", "Potentially Hazardous Asteroids" = "PHA",
        "Main Belt Asteroids (MBA)" = "MBA", 
