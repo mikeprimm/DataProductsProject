@@ -1,0 +1,53 @@
+---
+title: "JPL Asteroids and Comets Data Explorer"
+author: "Michael Primm"
+date: "November 21, 2015"
+output: html_document
+run time: shiny
+---
+
+This Shiny application presents an interface for exploring a snapshot of the data hosted
+by NASA at the JPL Small-Body Database Search Engine (http://ssd.jpl.nasa.gov/sbdb_query.cgi#x).
+The data used by the application are two CSV files containing a consistent set of output columns -
+one for asteroid data (object kind = 'Asteroids') and one for comet data (object kind = 'Comets').
+In both cases, the following columns were queried:
+
+- object fullname
+- H (mag)
+- M1 (mag)
+- diameter (km)
+- albedo
+- rot_per (h)
+- e
+- a (AU)
+- q (AU)
+- i (deg)
+- node (deg)
+- peri (deg)
+- M (deg)
+- Q (AU)
+- period (d)
+- period (years)
+- NEO (Y/N)
+- PHA (Y/N)
+- orbit class
+
+The application makes it easy to explore possible relationships between these various attributes,
+both for the data set as a whole, and for specific classes of objects (e.g. all comets, main belt asteroids, etc).
+
+## Inputs and Outputs
+
+In all cases, the output of the tool is a graph showing a selected attribute on the X axis.  The
+use of the Y axis supports several modes:
+
+- Showing corresponding values of another attribute for each object
+- Showing the density of objects sharing the value of the selected attribute on the X axis
+- Showing the population of object sharing the value of the selected attribute on the X axis
+
+Further, for the first mode, an additional data analysis model can be selected, allowing regression
+modelling of the data being presented.  The models supported include:
+
+- Linear regression of the two attributes, with one line corresponding to the regression for each class of objects being presented
+- Linear regression of the two attributes, with one line representing all of the objects presented
+- Polynomial (curve-fitting) regression of the two attributes, with one line corresponding to the regression for each class of objects being presented
+- Polynomial (curve-fitting) regression of the two attributes, with one line representing all of the objects presented

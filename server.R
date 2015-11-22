@@ -7,8 +7,9 @@
 
 library(shiny)
 library(ggplot2)
-library(data.table)
-library(MASS)
+library(scales)
+#library(data.table)
+#library(MASS)
 
 setClass("myNumeric")
 setAs("character","myNumeric", function(from) as.numeric(from) )
@@ -82,10 +83,18 @@ shinyServer(function(input, output) {
   output$confPlot <- renderPlot({
       dat <- selectedConf();
       if (input$confY == "popdensity") {
-          p <- ggplot(dat, aes_string(x = input$confX, color="class")) + geom_density();
+          p <- ggplot(dat, aes_string(x = input$confX, color="class", fill="class")) + geom_density(alpha=0.5, trim=TRUE);
           if (input$confX %in% logchoices) {
               p <- p + scale_x_log10();
           }
+          p <- p + ylab("Density")
+      }
+      else if (input$confY == "pophist") {
+          p <- ggplot(dat, aes_string(x = input$confX, color="class", fill="class")) + geom_histogram(position="dodge", trim=TRUE);
+          if (input$confX %in% logchoices) {
+              p <- p + scale_x_log10();
+          }
+          p <- p + ylab("Population")
       }
       else {
           p <- ggplot(dat, aes_string(x = input$confX, y = input$confY, color="class")) + geom_point();
@@ -107,8 +116,9 @@ shinyServer(function(input, output) {
           if (input$confY %in% logchoices) {
               p <- p + scale_y_log10();
           }
+          p <- p + ylab(choices[choices$id == input$confY,]$name)
       }
-      p <- p + xlab(choices[choices$id == input$confX,]$name) + ylab(choices[choices$id == input$confY,]$name)
+      p <- p + xlab(choices[choices$id == input$confX,]$name)
       p
   })
   
